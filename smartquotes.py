@@ -185,6 +185,7 @@ class LsqAutoDetectBufferLangCommand(sublime_plugin.TextCommand,
 class LsqSetBufferLangCommand(sublime_plugin.TextCommand, LanguageDetection):
     def run(self, edit):
         self.supported_languages = list(quotes.keys())
+        self.supported_languages.sort()
         window = self.view.window()
         window.show_quick_panel(self.supported_languages, self.result)
 
