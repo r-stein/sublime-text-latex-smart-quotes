@@ -1,0 +1,204 @@
+[
+	// insert "
+	{ "keys": ["\""], "command": "insert_quotes",
+		"context":  [
+			// { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+		],
+	},
+	{ "keys": ["\""], "command": "insert_quotes", "args": { "which_quote": "open" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+		],
+	},
+	{ "keys": ["\""], "command": "insert_quotes", "args": { "which_quote": "close" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "preceding_text", "operator": "regex_contains", "operand": "[a-zA-Z0-9_-]$", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\S$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\\s)|$", "match_all": true },
+		],
+	},
+	{ "keys": ["\""], "command": "insert_quotes", "args": { "which_quote": "open" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\s)|^$", "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^[a-zA-Z0-9_-]", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^[^\\s\\.?!]", "match_all": true },
+		],
+	},
+	{ "keys": ["ctrl+l", "\""], "command": "insert_snippet", "args": { "contents": "\"" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+		],
+	},
+	// insert '
+	{ "keys": ["'"], "command": "insert_quotes", "args": { "quote_type": "single" },
+		"context":  [
+			// { "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+		],
+	},
+	{ "keys": ["'"], "command": "insert_quotes", "args": { "quote_type": "single", "which_quote": "open" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": false },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+		],
+	},
+	{ "keys": ["'"], "command": "insert_quotes", "args": { "quote_type": "single", "which_quote": "close" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			// { "key": "preceding_text", "operator": "regex_contains", "operand": "[a-zA-Z0-9_-]$", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\S$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\\s)|$", "match_all": true },
+		],
+	},
+	{ "keys": ["'"], "command": "insert_quotes", "args": { "quote_type": "single", "which_quote": "open" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\s)|^$", "match_all": true },
+			// { "key": "following_text", "operator": "regex_contains", "operand": "^[a-zA-Z0-9_-]", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^[^\\s\\.?!]", "match_all": true },
+		],
+	},
+	{ "keys": ["ctrl+l", "'"], "command": "insert_snippet", "args": { "contents": "'" },
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+		],
+	},
+	// move over closing quotes
+	{ "keys": ["\""], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u201C|\u201D|\u201E)", "match_all": true }
+		]
+	},
+	{ "keys": ["\""], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Move Two Right.sublime-macro"}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^((``)|('')|(\"`)|(\"'))", "match_all": true }
+		]
+	},
+	{ "keys": ["\""], "command": "move", "args": {"by": "word_ends", "forward": true}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\\\(g|f)(l|r)q", "match_all": true }
+		]
+	},
+	{ "keys": ["'"], "command": "move", "args": {"by": "characters", "forward": true}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u2018|\u2019|\u201A|'|`)", "match_all": true }
+		]
+	},
+	{ "keys": ["'"], "command": "move", "args": {"by": "word_ends", "forward": true}, "context":
+		[
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\\\(g|f)(l|r)q", "match_all": true }
+		]
+	},
+	// use normal quotes in math mode
+	{ "keys": ["'"], "command": "insert", "args": {"characters": "'"},
+		"context":  [
+			{ "key": "selector", "operator": "equal",
+			"operand": "text.tex.latex string.other.math.tex, text.tex.latex meta.function.environment.math.latex" },
+		]
+	},
+	{ "keys": ["\""], "command": "insert", "args": {"characters": "\""},
+		"context":  [
+			{ "key": "selector", "operator": "equal",
+			"operand": "text.tex.latex string.other.math.tex, text.tex.latex meta.function.environment.math.latex" },
+		]
+	},
+	// delete both quotes
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u201A$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u2018", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u201E$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u201C", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u2018$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u2019", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u201C$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u201D", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u2039$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u203A", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u00AB$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u00BB", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "`$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^'", "match_all": true }
+		]
+	},
+	// TODO left right delete two times
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Double Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "``$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^''", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Double Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\"`$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\"'", "match_all": true }
+		]
+	},
+]

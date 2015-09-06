@@ -1,0 +1,16 @@
+[
+	{
+		"args":
+		{
+			"file": "Packages/Default/Delete Left Right.sublime-macro"
+		},
+		"command": "run_macro_file"
+	},
+	{
+		"args":
+		{
+			"file": "Packages/Default/Delete Left Right.sublime-macro"
+		},
+		"command": "run_macro_file"
+	}
+]

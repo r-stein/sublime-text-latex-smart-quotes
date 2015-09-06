@@ -1,0 +1,10 @@
+[
+    {
+        "caption": "LaTeX SmartQuotes: Set Buffer Language",
+        "command": "lsq_set_buffer_lang",
+    },
+    {
+        "caption": "LaTeX SmartQuotes: Auto Detect Buffer Language",
+        "command": "lsq_auto_detect_buffer_lang",
+    }
+]

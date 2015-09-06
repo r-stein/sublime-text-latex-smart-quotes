@@ -1,0 +1,6 @@
+{
+    // The language, which should be used if no language has been detected
+    "latex_smart_quotes_default_language": "english",
+    // use unicode support
+    "latex_smart_quotes_use_ucs": false
+}
