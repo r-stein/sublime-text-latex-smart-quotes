@@ -23,7 +23,7 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 - You can use `ctrl+l "` or `ctrl+l '` to insert the usual quotation marks instead of the LaTeX and language specific.
 
-- The language detection checks for the babel package, hence it won't work use an other package for language support
+- The language detection checks for the babel package, hence it won't work if you use an other package for language support.
 
 ## Options
 
@@ -33,5 +33,8 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 ## Demonstration
 
-__TODO__
+This demo shows some available quotes. The quotes are choosen automatically by this package.
+
+![lsq_all_quotes_demo](https://cloud.githubusercontent.com/assets/12573621/9706476/4f9f1de0-54e6-11e5-8bfe-b4625c8e6c76.gif)
+
 

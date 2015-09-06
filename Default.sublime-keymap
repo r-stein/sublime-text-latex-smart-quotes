@@ -73,13 +73,13 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
 		],
 	},
-	// move over closing quotes
+	// opening and closing quotes
 	{ "keys": ["\""], "command": "move", "args": {"by": "characters", "forward": true}, "context":
 		[
 			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u201C|\u201D|\u201E)", "match_all": true }
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u201C|\u201D|\u201E|\u00AB|\u00BB)", "match_all": true }
 		]
 	},
 	{ "keys": ["\""], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Move Two Right.sublime-macro"}, "context":

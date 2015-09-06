@@ -110,6 +110,7 @@ class LanguageDetection:
 
             # early break conditions to improve performance
             if re.search(r"\\begin\{document\}", line):
+                is_root = True
                 break
             ucs_found = ucs_found or bool(ucsr)
             if lang is not None and ucs_found:
@@ -118,13 +119,15 @@ class LanguageDetection:
         tex_file.close()
 
         if lang is None and is_root:
-            return self.get_default_language().replace("-ucs", ucs_string)
+            # if its the root document, but no language specified
+            # it is most likely english!
+            return "english" + ucs_string
         elif lang is None:
             return
 
         if re.match(r"n?german", lang):
             lang = "german"
-        elif re.match(r"frenchb?", lang):
+        elif re.match(r"(frenchb?)|(francais)|(acadian)|(canadien)", lang):
             lang = "french"
 
         return lang + ucs_string
