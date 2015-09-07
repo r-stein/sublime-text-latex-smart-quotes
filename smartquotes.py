@@ -49,12 +49,12 @@ quotes = {
     },
     "french": {
         "single": {
-            "start": "\\frq ",
-            "end": "\\flq"
+            "start": "\\flq ",
+            "end": "\\frq"
         },
         "double": {
-            "start": "\\frqq ",
-            "end": "\\flqq"
+            "start": "\\flqq ",
+            "end": "\\frqq"
         }
     },
     "french-ucs": {
