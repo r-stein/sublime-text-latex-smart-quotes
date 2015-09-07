@@ -91,13 +91,20 @@ class LanguageDetection:
         return self.package_settings().get(OPTIONS_DEFAULT_LANG, fallback_lang)
 
     def _auto_detect_language_from_file(self, file_name):
-        tex_file = open(file_name, 'r')
+        # open the file in binary mode and try to convert it later to avoid
+        # decoding errors, we are only interested in lines
+        # without special chars anyway
+        tex_file = open(file_name, 'rb')
 
         ucs_string = ''
         is_root = ucs_found = False
         lang = None
 
-        for line in tex_file:
+        for bline in tex_file:
+            try:
+                line = bline.decode("UTF-8")
+            except UnicodeDecodeError:
+                continue
             is_root = is_root or line.find("documentclass") > -1
             ucsr = re.search(r"\\usepackage\[utf(8)|(16)\]\{inputenc\}", line)
             if ucsr and self.package_settings().get(OPTIONS_UCS, True):
