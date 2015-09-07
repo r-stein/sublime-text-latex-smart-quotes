@@ -66,6 +66,16 @@ quotes = {
             "start": "\u00AB",
             "end": "\u00BB"
         }
+    },
+    "None": {
+        "single": {
+            "start": "'",
+            "end": "'"
+        },
+        "double": {
+            "start": "\"",
+            "end": "\""
+        }
     }
 }
 
