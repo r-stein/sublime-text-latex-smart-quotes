@@ -25,6 +25,9 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 - The language detection checks for the babel package, hence it won't work if you use an other package for language support.
 
+- To disable the automatic language detection and define a language, which should always be used, you can define it in your user settings. For example you can add `"latex_smart_quotes_current_language": "german-ucs"` to always use german with unicode support. You might want to do this if you only use one language anyway.
+
+
 ## Options
 
 - __latex_smart_quotes_default_language__ The default language, which is used if no language has been detected
@@ -33,8 +36,6 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 ## Demonstration
 
-This demo shows some available quotes. The quotes are choosen automatically by this package.
+This demo shows some available quotes. The quotes are chosen automatically by this package.
 
 ![lsq_all_quotes_demo](https://cloud.githubusercontent.com/assets/12573621/9706476/4f9f1de0-54e6-11e5-8bfe-b4625c8e6c76.gif)
-
-
