@@ -19,9 +19,10 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 ### Hints
 
-- If you use unicode characters you should have `\usepackage[utf8]{inputenc}` at the start of your document.
-
 - You can use `ctrl+l "` or `ctrl+l '` to insert the usual quotation marks instead of the LaTeX and language specific.
+  If you want to disable the special quotes (e.g. in a lstlisting environment), you can set the buffer language to "None".
+
+- If you use unicode characters you should have `\usepackage[utf8]{inputenc}` at the start of your document.
 
 - The language detection checks for the babel package, hence it won't work if you use an other package for language support.
 
@@ -36,6 +37,10 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 ## Demonstration
 
-This demo shows some available quotes. The quotes are chosen automatically by this package.
+This demonstrates the context detection, i.e. the choice of opening and closing quotes.
 
-![lsq_all_quotes_demo](https://cloud.githubusercontent.com/assets/12573621/9706476/4f9f1de0-54e6-11e5-8bfe-b4625c8e6c76.gif)
+![LaTeXSmartQuotes context detection](https://cloud.githubusercontent.com/assets/12573621/9733030/9648d91e-5628-11e5-94c9-cf55cf51bdc6.gif)
+
+This demo shows some available quotes. The quote types are chosen automatically by the language detection of this package.
+
+![LaTeXSmartQuotes all quotes](https://cloud.githubusercontent.com/assets/12573621/9706476/4f9f1de0-54e6-11e5-8bfe-b4625c8e6c76.gif)
