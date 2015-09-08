@@ -14,8 +14,8 @@ Usually you do not have to do anything special and just use LaTeX as always.
 If you type `"` or `'` this Package will try to extract the language of the document and insert the correct quotation marks.
 
 The language detection is executed the first time you press `"` or `'` and the result is cached.
-If you want to rerun it press `ctrl+p` and insert `LaTeX SmartQuotes: Auto Detect Buffer Language`, the result will be displayed in the status bar at the bottom.
-If the detected language is incorrect or you use a multilingual document, you can change the language by pressing `ctrl+p` and executing the command `LaTeX SmartQuotes: Set Buffer Language`. This command will provide you a list with all available languages. If the language ends with `-ucs` it will use unicode characters.
+If you want to rerun it press `ctrl+shift+p` and insert `LaTeX SmartQuotes: Auto Detect Buffer Language`, the result will be displayed in the status bar at the bottom.
+If the detected language is incorrect or you use a multilingual document, you can change the language by pressing `ctrl+shift+p` and executing the command `LaTeX SmartQuotes: Set Buffer Language`. This command will provide you a list with all available languages. If the language ends with `-ucs` it will use unicode characters.
 
 ### Hints
 
