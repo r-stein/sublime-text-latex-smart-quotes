@@ -1,0 +1,12 @@
+[
+    { "keys": ["super+l", "\""], "command": "insert_snippet", "args": { "contents": "\"" },
+        "context":  [
+            { "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+        ],
+    },
+    { "keys": ["super+l", "'"], "command": "insert_snippet", "args": { "contents": "'" },
+        "context":  [
+            { "key": "selector", "operator": "equal", "operand": "text.tex.latex" }
+        ],
+    }
+]

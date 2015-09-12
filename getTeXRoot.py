@@ -1,4 +1,4 @@
-# This file is originaly from LaTeXTools
+# This file is originated from LaTeXTools
 # ST2/ST3 compat
 from __future__ import print_function
 import sublime
