@@ -26,7 +26,8 @@ If the detected language is incorrect or you use a multilingual document, you ca
 
 - The language detection checks for the babel package, hence it won't work if you use an other package for language support.
 
-- To disable the automatic language detection and define a language, which should always be used, you can define it in your user settings. For example you can add `"latex_smart_quotes_current_language": "german-ucs"` to always use german with unicode support. You might want to do this if you only use one language anyway.
+- To disable the automatic language detection and define a language, which should always be used, you can define it in your user settings. For example you can add `"latex_smart_quotes_current_language": "german-ucs"` to always use german with unicode support. You might want to do this if you only use one language anyway.<br>
+  **If you are a native english speaker you might want to add `"latex_smart_quotes_current_language": "english"` to your settings file.**
 
 
 ## Options
