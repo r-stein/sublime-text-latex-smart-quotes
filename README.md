@@ -1,6 +1,7 @@
 # LaTeX Smart Quotes
 
 The purpose of this Sublime Text Package is to make the quotes in LaTeX "smart", i.e. insert the quotes you want to have.
+It is inspired by the [typopunct-mode](http://www.emacswiki.org/emacs/typopunct.el) for Emacs.
 
 To establish this goal it uses:
 
