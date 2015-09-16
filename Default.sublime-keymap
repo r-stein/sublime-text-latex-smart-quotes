@@ -19,14 +19,14 @@
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
 			// { "key": "preceding_text", "operator": "regex_contains", "operand": "[a-zA-Z0-9_-]$", "match_all": true },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "[^\\s\u201C\u201D\u00BB\"\u2018\u201A\u2039]$", "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\\s)|$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^((\\s)|$|\\})", "match_all": true },
 		],
 	},
 	{ "keys": ["\""], "command": "insert_quotes", "args": { "which_quote": "open" },
 		"context":  [
 			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\s)|^$", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "((\\s)|^|\\{)$", "match_all": true },
 			// { "key": "following_text", "operator": "regex_contains", "operand": "^[a-zA-Z0-9_-]", "match_all": true },
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^[^\\s\\.?!]", "match_all": true },
 		],
@@ -51,14 +51,14 @@
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
 			// { "key": "preceding_text", "operator": "regex_contains", "operand": "[a-zA-Z0-9_-]$", "match_all": true },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "[^\\s\u2019\u2018\u203A'\u201C\u201E\u00AB]$", "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\\s)|$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^((\\s)|$|\\})", "match_all": true },
 		],
 	},
 	{ "keys": ["'"], "command": "insert_quotes", "args": { "quote_type": "single", "which_quote": "open" },
 		"context":  [
 			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "preceding_text", "operator": "regex_contains", "operand": "(\\s)|^$", "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "((\\s)|^|\\{)$", "match_all": true },
 			// { "key": "following_text", "operator": "regex_contains", "operand": "^[a-zA-Z0-9_-]", "match_all": true },
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^[^\\s\\.?!]", "match_all": true },
 		],
@@ -189,6 +189,22 @@
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
 			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\"`$", "match_all": true },
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^\"'", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Word Quotes Delete Left.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\\\(f|g)(l|r)qq?$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^([^\\w]|$)", "match_all": true }
+		]
+	},
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/LaTeXSmartQuotes/Word Quotes Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\\\(f|g)lqq?$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\\\(f|g)rqq?", "match_all": true }
 		]
 	}
 ]

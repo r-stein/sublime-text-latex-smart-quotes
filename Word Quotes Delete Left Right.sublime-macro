@@ -1,0 +1,22 @@
+[
+	{
+		"args":
+		{
+			"forward": false
+		},
+		"command": "delete_word"
+	},
+	{
+		"command": "left_delete"
+	},
+	{
+		"command": "right_delete"
+	},
+	{
+		"args":
+		{
+			"forward": true
+		},
+		"command": "delete_word"
+	}
+]

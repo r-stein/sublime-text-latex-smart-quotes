@@ -28,7 +28,7 @@ quotes = {
     },
     "german": {
         "single": {
-            "start": "\glq",
+            "start": "\glq ",
             "end": "\grq"
         },
         # TODO this requires babel
