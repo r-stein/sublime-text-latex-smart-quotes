@@ -169,7 +169,7 @@ class LanguageDetection:
             message = "Save the file to enable language detection." +\
                 " Set to default: '%s'" % lang
             sublime.status_message(message)
-            return
+            return lang
 
         # the language is set in the the TeX root,
         # if the root is defined try to get the language from the root
