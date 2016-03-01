@@ -92,8 +92,24 @@ class LanguageDetection:
         # check if the language has already been saved in the options
         return self.view.settings().get(OPTIONS_CURRENT_LANG, None)
 
+    def add_word_seperators(self, language):
+        word_separators = self.view.settings().get("word_separators")
+        quote_signs = "".join(
+            quote_sign
+            for quote_type in quotes[language].values()
+            for quote_sign in quote_type.values()
+            if (len(quote_sign) == 1 and
+                quote_sign not in word_separators)
+        )
+        if not quote_signs:
+            return
+        new_word_separators = word_separators + quote_signs
+        self.view.settings().set("word_separators", new_word_separators)
+
     def set_current_language(self, language):
         self.view.settings().set(OPTIONS_CURRENT_LANG, language)
+        if language.endswith("-ucs"):
+            self.add_word_seperators(language)
 
     def get_default_language(self):
         ucs_settings = self.package_settings().get(OPTIONS_UCS, False)
