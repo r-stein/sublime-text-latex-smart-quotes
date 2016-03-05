@@ -2,5 +2,8 @@
     // The language, which should be used if no language has been detected
     "latex_smart_quotes_default_language": "english",
     // use unicode support
-    "latex_smart_quotes_use_ucs": true
+    "latex_smart_quotes_use_ucs": true,
+    // this will insert the quotes as word separators
+    // to improve the movement of the cursor
+    "latex_smart_quotes_insert_word_separators": true
 }

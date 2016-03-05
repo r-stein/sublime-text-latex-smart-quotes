@@ -82,6 +82,7 @@ quotes = {
 OPTIONS_DEFAULT_LANG = "latex_smart_quotes_default_language"
 OPTIONS_CURRENT_LANG = "latex_smart_quotes_current_language"
 OPTIONS_UCS = "latex_smart_quotes_use_ucs"
+OPTIONS_WORD_SEPARATORS = "latex_smart_quotes_insert_word_separators"
 
 
 class LanguageDetection:
@@ -108,7 +109,8 @@ class LanguageDetection:
 
     def set_current_language(self, language):
         self.view.settings().set(OPTIONS_CURRENT_LANG, language)
-        if language.endswith("-ucs"):
+        if (language.endswith("-ucs") and
+                self.package_settings().get(OPTIONS_WORD_SEPARATORS)):
             self.add_word_seperators(language)
 
     def get_default_language(self):
