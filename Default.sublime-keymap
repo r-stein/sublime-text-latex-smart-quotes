@@ -104,17 +104,17 @@
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\\\(g|f)(l|r)q", "match_all": true }
 		]
 	},
-	// use normal quotes in math mode
+	// use normal quotes in math mode and verbatim mode
 	{ "keys": ["'"], "command": "insert", "args": {"characters": "'"},
 		"context":  [
 			{ "key": "selector", "operator": "equal",
-			"operand": "text.tex.latex string.other.math.tex, text.tex.latex meta.function.environment.math.latex" },
+			"operand": "text.tex.latex meta.environment.verbatim, text.tex.latex meta.environment.math, text.tex.latex string.other.math" },
 		]
 	},
 	{ "keys": ["\""], "command": "insert", "args": {"characters": "\""},
 		"context":  [
 			{ "key": "selector", "operator": "equal",
-			"operand": "text.tex.latex string.other.math.tex, text.tex.latex meta.function.environment.math.latex" },
+			"operand": "text.tex.latex meta.environment.verbatim, text.tex.latex meta.environment.math, text.tex.latex string.other.math" },
 		]
 	},
 	// delete both quotes
