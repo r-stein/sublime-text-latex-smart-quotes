@@ -104,6 +104,19 @@
 			{ "key": "following_text", "operator": "regex_contains", "operand": "^\\\\(g|f)(l|r)q", "match_all": true }
 		]
 	},
+	// use normal quotes if escaped
+	{ "keys": ["'"], "command": "insert", "args": {"characters": "'"},
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\\\$" }
+		]
+	},
+	{ "keys": ["\""], "command": "insert", "args": {"characters": "\""},
+		"context":  [
+			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\\\\$" }
+		]
+	},
 	// use normal quotes in math mode and verbatim mode
 	{ "keys": ["'"], "command": "insert", "args": {"characters": "'"},
 		"context":  [
