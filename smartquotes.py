@@ -249,8 +249,16 @@ class LsqSetBufferLangCommand(sublime_plugin.TextCommand, LanguageDetection):
         def sortkey(lang):
             return lang.upper() if lang.islower else lang.lower()
         self.supported_languages = sorted(languages, key=sortkey)
+
+        def example_string(language):
+            return ("{single[start]}single{single[end]}  -  "
+                    "{double[start]}double{double[end]}"
+                    .format(**quotes[language]))
+
+        panel_entries = [[lang, example_string(lang)]
+                         for lang in self.supported_languages]
         window = self.view.window()
-        window.show_quick_panel(self.supported_languages, self.result)
+        window.show_quick_panel(panel_entries, self.result)
 
     def result(self, value):
         if value != -1:
