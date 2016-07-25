@@ -145,23 +145,23 @@ class LanguageDetection:
                 continue
             is_root = is_root or line.find("documentclass") > -1
             ucsr = re.search(
-                    r"\\((use)|(Require))package\[utf(8)|(16)\]"
-                    r"\{inputenc\}",
-                    line)
+                r"\\((use)|(Require))package\[utf(8)|(16)\]"
+                r"\{inputenc\}",
+                line)
             if ucsr and self.package_settings().get(OPTIONS_UCS, True):
                 ucs_string = '-ucs'
             langr = re.search(
-                        r"\\((use)|(Require))package"
-                        r"(\[(\w+,\s*)*(?P<lang>\w*)\])?"
-                        r"\{babel\}",
-                        line)
+                r"\\((use)|(Require))package"
+                r"(\[(\w+,\s*)*(?P<lang>\w*)\])?"
+                r"\{babel\}",
+                line)
             if langr:
                 lang = langr.group("lang")
             elif re.search(
-                   r"\\((use)|(Require))package\{([^\}]*,\s*)?"
-                   r"n?german"
-                   r"(\s*,[^\}]*)?\}",
-                   line):
+                    r"\\((use)|(Require))package\{([^\}]*,\s*)?"
+                    r"n?german"
+                    r"(\s*,[^\}]*)?\}",
+                    line):
                 lang = "german"
 
             # early break conditions to improve performance
