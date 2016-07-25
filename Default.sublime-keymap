@@ -93,7 +93,7 @@
 			{ "key": "selector", "operator": "equal", "operand": "text.tex.latex" },
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
 			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
-			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u2018|\u2019|\u201A|'|`)", "match_all": true }
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^(\u2018|\u2019|\u201A|\u2039|\u203A|'|`)", "match_all": true }
 		]
 	},
 	{ "keys": ["'"], "command": "move", "args": {"by": "word_ends", "forward": true}, "context":
@@ -131,6 +131,23 @@
 		]
 	},
 	// delete both quotes
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u203A$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u2039", "match_all": true }
+		]
+	},
+	// delete both quotes
+	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
+		[
+			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },
+			{ "key": "selection_empty", "operator": "equal", "operand": true, "match_all": true },
+			{ "key": "preceding_text", "operator": "regex_contains", "operand": "\u00BB$", "match_all": true },
+			{ "key": "following_text", "operator": "regex_contains", "operand": "^\u00AB", "match_all": true }
+		]
+	},
 	{ "keys": ["backspace"], "command": "run_macro_file", "args": {"file": "res://Packages/Default/Delete Left Right.sublime-macro"}, "context":
 		[
 			{ "key": "setting.auto_match_enabled", "operator": "equal", "operand": true },

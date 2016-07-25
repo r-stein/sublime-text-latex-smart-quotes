@@ -47,6 +47,16 @@ quotes = {
             "end": "\u201C"
         }
     },
+    "german-chevron-ucs": {
+        "single": {
+            "start": "\u203A",
+            "end": "\u2039"
+        },
+        "double": {
+            "start": "\u00BB",
+            "end": "\u00AB"
+        }
+    },
     "french": {
         "single": {
             "start": "\\flq ",
