@@ -69,8 +69,8 @@ quotes = {
     },
     "french-babel": {
         "single": {
-            "start": "\u2039",
-            "end": "\u203A"
+            "start": "'",
+            "end": "'"
         },
         "double": {
             "start": "\\og ",
