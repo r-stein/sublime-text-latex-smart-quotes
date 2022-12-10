@@ -53,4 +53,3 @@ This demo shows some available quotes. The quote types are chosen automatically 
 ## Issues
 
 If something does not work as you expected or you want support of an additional language, then you can create a [pull request](https://github.com/r-stein/sublime-text-latex-smart-quotes/pulls) or an [issue](https://github.com/r-stein/sublime-text-latex-smart-quotes/issues) on [github](https://github.com/r-stein/sublime-text-latex-smart-quotes).
-In the case you don't own a github account you can also write in email to [r-stein.github@web.de](mailto:r-stein.github@web.de).
