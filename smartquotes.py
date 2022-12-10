@@ -26,6 +26,26 @@ quotes = {
             "end": "\u201D"
         }
     },
+    "english-gb": {
+        "single": {
+            "start": "``",
+            "end": "''"
+        },
+        "double": {
+            "start": "`",
+            "end": "'"
+        }
+    },
+    "english-gb-ucs": {
+        "single": {
+            "start": "\u201C",
+            "end": "\u201D"
+        },
+        "double": {
+            "start": "\u2018",
+            "end": "\u2019"
+        }
+    },
     "german": {
         "single": {
             "start": "\glq ",
