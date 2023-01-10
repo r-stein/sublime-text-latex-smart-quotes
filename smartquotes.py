@@ -87,6 +87,16 @@ quotes = {
             "end": "\\frqq"
         }
     },
+    "french-babel": {
+        "single": {
+            "start": "'",
+            "end": "'"
+        },
+        "double": {
+            "start": "\\og ",
+            "end": " \\fg{}"
+        }
+    }
     "french-ucs": {
         "single": {
             "start": "\u2039",
